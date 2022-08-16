@@ -1,5 +1,7 @@
 import { FormGroup, Label, Input, Button } from 'reactstrap'
 import React, { useState } from 'react';
+import { Render } from './index.js';
+import NewAccount from './NewAccount.js';
 
 function NewLabor(props) {
     return <div class="container" >
