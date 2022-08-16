@@ -37,7 +37,6 @@ function NewLabor(props) {
 
 export default function RegisterWorker(props) {
     const [laborArray, setLaborArray] = useState(1);
-    const [test, setTest] = useState(true);
 
     return <div class="container">
         <div class="row">
