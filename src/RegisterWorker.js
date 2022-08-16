@@ -43,13 +43,15 @@ export default function RegisterWorker(props) {
         <div class="row">
             <div class="col">
                 <div class="row" style={{ padding: '10px' }}>
-                    <div class="container" style={{ width: '150px', height: '150px', backgroundColor: 'blue' }}>
+                    <div class="container" style={{ color: '#fff', width: '150px', height: '150px', backgroundColor: 'blue' }}>
                         Primera imagen
+                        <Input type='file' style={{ fontSize: '75%' }} />
                     </div>
                 </div>
                 <div class="row" style={{ padding: '10px' }}>
-                    <div class="container" style={{ width: '150px', height: '150px', backgroundColor: 'green' }}>
+                    <div class="container" style={{ color: '#fff', width: '150px', height: '150px', backgroundColor: 'green' }}>
                         Segunda imagen
+                        <Input type='file' style={{ fontSize: '75%' }} />
                     </div>
                 </div>
                 <div class="row" style={{ padding: '10px' }}>
