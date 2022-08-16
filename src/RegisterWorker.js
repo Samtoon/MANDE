@@ -1,8 +1,8 @@
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import ReactDOM from 'react-dom';
-import React, {useState} from 'react';
+import React, { useCallback, useState } from 'react';
 
-function NewLabor (props) {
+function NewLabor(props) {
     return <div class="container" >
         <div class="row">
             <div class="col">
@@ -19,7 +19,7 @@ function NewLabor (props) {
                 <Label>
                     Costo unitario
                 </Label>
-                <Input id='cost'/>
+                <Input id='cost' />
             </div>
         </div>
         <div class="row">
@@ -27,31 +27,32 @@ function NewLabor (props) {
                 <Label>
                     Unidad de trabajo
                 </Label>
-                <div class="p-2 bd-highlight" style={{width:'150px'}}>
-                    <Input id='unity'/>
+                <div class="p-2 bd-highlight" style={{ width: '150px' }}>
+                    <Input id='unity' />
                 </div>
             </div>
         </div>
     </div>
 }
 
-export default (props) => {
-    const [laborArray, setLaborArray] = useState([NewLabor()]);
+export default function RegisterWorker(props) {
+    const [laborArray, setLaborArray] = useState(1);
     const [test, setTest] = useState(true);
+
     return <div class="container">
         <div class="row">
             <div class="col">
-                <div class="row" style={{padding: '10px'}}>
+                <div class="row" style={{ padding: '10px' }}>
                     <div class="container" style={{ width: '150px', height: '150px', backgroundColor: 'blue' }}>
                         Primera imagen
                     </div>
                 </div>
-                <div class="row" style={{padding: '10px'}}>
+                <div class="row" style={{ padding: '10px' }}>
                     <div class="container" style={{ width: '150px', height: '150px', backgroundColor: 'green' }}>
                         Segunda imagen
                     </div>
                 </div>
-                <div class="row" style={{padding: '10px'}}>
+                <div class="row" style={{ padding: '10px' }}>
                     <div class="container" style={{ width: '200px', height: '200px', backgroundColor: 'yellow' }}>
                         Mapa
                     </div>
@@ -62,23 +63,23 @@ export default (props) => {
                     <Label>
                         Nombre
                     </Label>
-                    <Input id='name'/>
+                    <Input id='name' />
                     <Label>
                         Dirección
                     </Label>
-                    <Input id='address'/>
+                    <Input id='address' />
                     <Label>
                         Cédula
                     </Label>
-                    <Input id='ID'/>
+                    <Input id='ID' />
                     <Label>
                         Celular
                     </Label>
-                    <Input id='cellphone'/>
+                    <Input id='cellphone' />
                     <Label>
                         Correo
                     </Label>
-                    <Input id='cellphone' type='email'/>
+                    <Input id='cellphone' type='email' />
                     <Label>
                         Género
                     </Label>
@@ -99,35 +100,29 @@ export default (props) => {
                     <Label>
                         Contraseña
                     </Label>
-                    <Input id='password' type='password'/>
+                    <Input id='password' type='password' />
                     <Label>
                         Confirmar contraseña
                     </Label>
-                    <Input id='confirmPassword' type='password'/>
+                    <Input id='confirmPassword' type='password' />
                 </FormGroup>
             </div>
         </div>
-        <div class='row' style={{padding: '10px'}}>
+        <div class='row' style={{ padding: '10px' }}>
             <div class='container' id='laborContainer'>
-                {laborArray}
+                {
+                    new Array(laborArray).fill(<></>, 0, laborArray).map(singleLabor => NewLabor())
+                }
             </div>
         </div>
-        <div class='row' style={{padding: '10px'}}>
+        <div class='row' style={{ padding: '10px' }}>
             <div class='d-flex justify-content-center'>
-                <Button outline='false' 
-                        color='info'
-                        onClick={()=>{
-                            let array=laborArray
-                            
-                            
-                            
-                            array.push(NewLabor())
-                            setLaborArray(array)
-                            setTest(!test)
-                            console.log(document.getElementById('laborContainer'))
-                            console.log(laborArray)
-                        }}
-                >Añadir oficio, hay {laborArray.length}</Button>
+                <Button outline='false'
+                    color='info'
+                    onClick={() => (
+                        setLaborArray(laborArray + 1)
+                    )}
+                >Añadir oficio, hay {laborArray}</Button>
             </div>
         </div>
         <div class='row'>
