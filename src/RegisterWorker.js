@@ -1,6 +1,5 @@
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
-import ReactDOM from 'react-dom';
-import React, { useCallback, useState } from 'react';
+import { FormGroup, Label, Input, Button } from 'reactstrap'
+import React, { useState } from 'react';
 
 function NewLabor(props) {
     return <div class="container" >
