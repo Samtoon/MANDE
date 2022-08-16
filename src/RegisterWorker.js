@@ -125,7 +125,7 @@ export default function RegisterWorker(props) {
         </div>
         <div class='row'>
             <div class='d-flex justify-content-around'>
-                <Button>Regresar</Button>
+                <Button onClick={() => Render(<NewAccount />)} >Regresar</Button>
                 <Button color='success'>Registrar</Button>
             </div>
         </div>
