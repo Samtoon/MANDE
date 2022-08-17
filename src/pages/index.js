@@ -1,8 +1,7 @@
-import '../styles/Home.module.css';
 import { Button } from 'reactstrap';
 import { useRouter } from 'next/router';
 
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home(props) {
   const router = useRouter()

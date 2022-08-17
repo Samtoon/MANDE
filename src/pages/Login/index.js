@@ -1,6 +1,11 @@
+import { useRouter } from 'next/router'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 export default function Login(props) {
+  const router = useRouter()
+
   return <div
     style={{
       display: 'flex',
@@ -39,7 +44,7 @@ export default function Login(props) {
           }}
           >
             <div style={{ padding: '10%' }}>
-              <Button >Regresar</Button>
+              <Button onClick={() => router.push('/')}>Regresar</Button>
             </div>
             <div style={{ padding: '10%' }}>
               <Button color='success'>Acceder</Button>
