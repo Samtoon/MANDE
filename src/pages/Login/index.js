@@ -1,8 +1,6 @@
 import { useRouter } from 'next/router'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 export default function Login(props) {
   const router = useRouter()
 

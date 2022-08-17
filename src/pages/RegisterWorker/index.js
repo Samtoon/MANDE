@@ -2,8 +2,6 @@ import { FormGroup, Label, Input, Button } from 'reactstrap'
 import React, { useState } from 'react';
 import { useRouter } from "next/router.js"
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 function NewLabor(props) {
 
   return <div className="container" >

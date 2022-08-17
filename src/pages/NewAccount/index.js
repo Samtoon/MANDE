@@ -2,8 +2,6 @@ import { Button } from "reactstrap"
 import React from 'react'
 import { useRouter } from "next/router.js"
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-
 export default function NewAccount(props) {
   const router = useRouter()
 
