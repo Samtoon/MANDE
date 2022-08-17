@@ -4,11 +4,11 @@ let conn
 
 if (!conn) {
   conn = new Pool({
-    user: 'iyhodmleuapojt',
-    password: '71ae51b3a9149e9cd5c264776a7d297733bfbe1033a8b4ec85d8ade486c8c72c',
-    host: 'ec2-52-44-13-158.compute-1.amazonaws.com',
+    user: 'qqkxpifoqytwrt',
+    password: 'f0a244a447a30c79382b990e5e8e58e3cccb69dc99f49c3bd17bb8ab49a969dc',
+    host: 'ec2-44-193-178-122.compute-1.amazonaws.com',
     port: 5432,
-    database: 'd3m3lc4m466r71',
+    database: 'dcnkc7qf3m870c',
     ssl: {
       rejectUnauthorized: false
     }
