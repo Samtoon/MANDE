@@ -15,21 +15,6 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
-    ],
-    "/Login": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/Login.js"
-    ],
-    "/NewAccount": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/NewAccount.js"
-    ],
     "/RegisterWorker": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

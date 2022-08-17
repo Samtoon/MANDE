@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useRouter } from "next/router.js"
 
 function NewLabor(props) {
-
+  
   return <div className="container" >
     <div className="row">
       <div className="col">
@@ -11,9 +11,12 @@ function NewLabor(props) {
           Oficio
         </Label>
         <Input id='labor' type='select'>
-          <option>
-            Luego se cargan
-          </option>
+          
+          {props.labors.map(labor => 
+            <option>
+              {labor}
+            </option>
+          )}
         </Input>
       </div>
       <div className="col">
@@ -36,11 +39,24 @@ function NewLabor(props) {
   </div>
 }
 
-export default function RegisterWorker(props) {
+export async function getStaticProps(){
+  const {pool} = require('/src/utils/database/index')
+  const promise = await pool.query('SELECT nombre FROM servicio')
+  const endresult = promise.rows.map((row)=>row.nombre)
+  console.log(endresult)
+  return {
+    props:{
+      endresult
+    }
+  }
+}
+
+export default function RegisterWorker({endresult}) {
   const router = useRouter()
-
   const [laborArray, setLaborArray] = useState(1);
-
+  console.log("endresult es de tipo "+typeof endresult+" y tiene el valor: "+endresult)
+  //const availableLabors = endresult
+  const availableLabors = endresult
   return <div className="container">
     <div className="row">
       <div className="col">
@@ -115,7 +131,7 @@ export default function RegisterWorker(props) {
     <div className='row' style={{ padding: '10px' }}>
       <div className='container' id='laborContainer'>
         {
-          new Array(laborArray).fill(<></>, 0, laborArray).map(singleLabor => NewLabor())
+          new Array(laborArray).fill(<></>, 0, laborArray).map(singleLabor => NewLabor({labors: availableLabors}))
         }
       </div>
     </div>
