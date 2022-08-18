@@ -25,7 +25,9 @@ export default function NewAccount(props) {
       </Button>
     </div>
     <div style={{ padding: '1%' }}>
-      <Button color='success'>Usuario</Button>
+      <Button color='success'
+        onClick={() => { router.push('/RegisterUser') }}
+      >Usuario</Button>
     </div>
     <div style={{ padding: '1%' }}>
       <Button onClick={() => { router.push('/') }}>Regresar</Button>
