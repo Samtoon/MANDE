@@ -14,28 +14,28 @@ if (!pool) {
     }
   })
 }
-pool.query('SELECT nombre from  servicio', (err,result)=>{
-  if(err){
+
+pool.query('SELECT nombre from  servicio', (err, result) => {
+  if (err) {
     console.error(err.stack)
   }
   //result.rows.map((row)=>{console.log(row.nombre)})
   console.log(result.rows)
-  test=result.rows
+  test = result.rows
 })
 console.log('bien')
 //pool.end()
 
-export async function getServerSideProps(context){
-  pool.query('SELECT nombre from  servicio', (err,result)=>{
-    if(err){
+export async function getServerSideProps(context) {
+  pool.query('SELECT nombre from  servicio', (err, result) => {
+    if (err) {
       console.error(err.stack)
     }
     //result.rows.map((row)=>{console.log(row.nombre)})
     console.log(result.rows)
-    test=result.rows
+    test = result.rows
   })
-  return {props: {result: test}}
+  return { props: { result: test } }
 }
 
-
-module.exports = {pool,test}
+module.exports = { pool, test }

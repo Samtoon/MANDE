@@ -1,8 +1,23 @@
 import { useRouter } from 'next/router'
+import { handleClientScriptLoad } from 'next/script';
+import { useCallback, useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
+
+import useUser from '/src/hooks/useUser'
 
 export default function Login(props) {
   const router = useRouter()
+
+  const { isLogged, login } = useUser()
+
+  const handleClick = useCallback((usuario, contrasena) => {
+    login(usuario, contrasena)
+  }, [login])
+
+  useState(() => {
+    if (isLogged)
+      router.push('/') // Enviar a la página principal del usuario
+  }, [isLogged, router])
 
   return <div
     style={{
@@ -42,11 +57,11 @@ export default function Login(props) {
           }}
           >
             <div style={{ padding: '10%' }}>
-              <Button onClick={() => router.push('/')}>Regresar</Button>
+              <Button onClick={(evt) => { evt.preventDefault(); router.push('/') }}>Regresar</Button>
             </div>
             <div style={{ padding: '10%' }}>
               <Button color='success'
-              onClick={() => router.push('/Worker/Home')}
+                onClick={evt => { evt.preventDefault(); handleClick(/*usuario, contraseña*/) }}
               >Acceder</Button>
             </div>
           </div>
@@ -54,5 +69,5 @@ export default function Login(props) {
       </Form>
     </div>
 
-  </div>
+  </div >
 }
